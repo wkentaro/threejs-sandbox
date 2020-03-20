@@ -10,5 +10,5 @@ brew install npm
 npm install three
 
 python -m http.server
-open http://localhost:8000/pcd.html
+open http://localhost:8000
 ```
