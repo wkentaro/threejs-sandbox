@@ -8,7 +8,8 @@ cd threejs-sandbox
 
 brew install npm
 npm install three
+npm install browserify
 
-python -m http.server
+make server
 open http://localhost:8000
 ```

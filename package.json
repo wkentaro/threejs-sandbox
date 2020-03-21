@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/wkentaro/threejs-sandbox#readme",
   "dependencies": {
+    "browserify": "^16.5.0",
     "three": "^0.114.0"
   }
 }
