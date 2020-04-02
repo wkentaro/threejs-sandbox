@@ -15,10 +15,10 @@ endif
 	$(call info_bold,==> Installing npm packages)
 	@npm install
 
-server: install browserify
+server:
 	$(call info_bold,==> Running HTTP server)
 	@python3 -m http.server
 
-browserify: install
+browserify:
 	$(call info_bold,==> Browserifying JS files)
 	@for f in js/*.js; do npx browserify $${f} -o dist/$${f}; done
