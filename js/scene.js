@@ -2,12 +2,12 @@ var $ = require('jquery');
 var THREE = window.THREE = require('three');
 require('three/examples/js/loaders/OBJLoader');
 require('three/examples/js/loaders/MTLLoader');
-require('three/examples/js/controls/TrackballControls');
+require('three/examples/js/controls/OrbitControls');
 
 var scene = new THREE.Scene();
 scene.background = new THREE.Color(0xeeeeee);
 
-resetCamera = function () {
+resetCamera = function() {
   camera.position.set(0, 0, 0);
   camera.rotation.set(0, 0, 0);
   camera.up.set(0, -1, 0);
@@ -34,8 +34,12 @@ var manager = new THREE.LoadingManager();
 var onProgress = function(xhr) {};
 var onError = function() {};
 
-controls = new THREE.TrackballControls(camera, renderer.domElement);
-controls.rotateSpeed = 3.0;
+controls = new THREE.OrbitControls(camera, renderer.domElement);
+controls.autoRotate = true;
+
+toggleRotateCamera = function() {
+  controls.autoRotate = !controls.autoRotate;
+}
 
 $.ajax({
   type: 'GET',
