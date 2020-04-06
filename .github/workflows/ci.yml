@@ -1,0 +1,36 @@
+name: ci
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
+    - name: Install
+      run: |
+        make install
+    - name: Browserify
+      run: |
+        make browserify
+    - name: Update gh-pages
+      if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+      run: |
+        git config --global user.email "www.kentaro.wada@gmail.com"
+        git config --global user.name "Kentaro Wada"
+
+        git checkout -b gh-pages
+        git reset --hard origin/master
+
+        git add -f dist/
+        git diff-index --cached --quiet HEAD || git commit -m "Add dist/"
+        git push origin gh-pages -f

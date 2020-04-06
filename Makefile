@@ -8,10 +8,6 @@ define info_bold
 endef
 
 install:
-ifeq (, $(shell which npm))
-	$(call info_bold,==> Installing npm command)
-	@brew install npm
-endif
 	$(call info_bold,==> Installing npm packages)
 	@npm install
 
