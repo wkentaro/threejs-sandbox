@@ -21,7 +21,11 @@
   "homepage": "https://github.com/wkentaro/threejs-sandbox#readme",
   "dependencies": {
     "browserify": "^16.5.0",
+    "jquery": "^3.4.1",
     "js-beautify": "^1.10.3",
     "three": "^0.114.0"
+  },
+  "devDependencies": {
+    "watchify": "^3.11.1"
   }
 }
