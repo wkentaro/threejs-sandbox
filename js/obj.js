@@ -33,15 +33,15 @@ var onError = function() {};
 var drill;
 
 new THREE.MTLLoader(manager)
-    .setPath('https://raw.githubusercontent.com/mmatl/pyrender/master/examples/models/')
-    .load('drill.obj.mtl', function(materials) {
+    .setPath('../examples/data/models/035_power_drill/')
+    .load('textured.mtl', function(materials) {
 
         materials.preload();
 
         new THREE.OBJLoader(manager)
             .setMaterials(materials)
-            .setPath('https://raw.githubusercontent.com/mmatl/pyrender/master/examples/models/')
-            .load('drill.obj', function(object) {
+            .setPath('../examples/data/models/035_power_drill/')
+            .load('textured.obj', function(object) {
 
                 drill = object;
                 scene.add(object);
